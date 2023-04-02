@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./terminal.css";
 
+import { loadAuth2 } from "gapi-script";
+
 // const colors = {
 //   green: "#00ff00",
 //   white: "#ffffff",
@@ -11,13 +13,30 @@ import "./terminal.css";
 // }
 
 function Terminal() {
+  const whoisText = `
+  Welcome to Association for Computing Machinery, VIT!
+
+  ACM-VIT, one of the most reputed and distinguished technical chapter in
+  VIT, Vellore has been working with vision and determination since it’s inception
+  in 2009, with the aspirations of advancement of computer science as a science and 
+  a profession. We are not just an organization, we are a family, united by one 
+  cause, working towards making technology more accessible much like our parent 
+  organization, ACM.
+
+  Get ready to embark on this journey with us!
+
+  Type 'help' for a list of commands. We have a few secrets put away for you too.
+  `;
+
   const [input, setInput] = useState("");
-  const [history, setHistory] = useState([]);
-  const [timeLeft, setTimeLeft] = useState(10);
+  const [history, setHistory] = useState([
+    { command: "whois", output: whoisText },
+  ]);
 
   const inputRef = useRef(null);
 
-  const terminalText = "user@acm-mainframe$ ";
+  const terminalText = "[user@acm-mainframe]~$ ";
+
   const researchText =
     "The research domain in ACM covers a broad range of technical concepts, including artificial intelligence, computer systems, cybersecurity, databases, human-computer interaction, programming languages, and software engineering, among others";
   const managementText =
@@ -31,17 +50,30 @@ function Terminal() {
   const ccText =
     "The competitive coding domain in ACM solves complex coding problems and enhances problem-solving skills. They work with the research domain to create innovative problems for participants, host events, and represent ACM in other coding competitions. The domain is known for their participation in the ACM ICPC and designs questions for ACM's RC events. \n\nWe will be hosting a Competitive Coding event on <date> on Hackerrank. Stay Tuned!";
   const helpText =
-    "Available commands: app, web, research, management, design, cc ,clear";
+    `Available commands: 
+     - app
+     - web 
+     - research 
+     - management 
+     - design
+     - cc
+     - clear 
+     - events 
+     - whois`;
   const defaultText = "Command not found. Type 'help' for a list of commands.";
   const enterText = "\nRedirecting to the form in 5 seconds...";
 
+  const events = 
+  `Reverse Coding is our competitive coding event with a twist.
+  Code2Create is our flagship event. It is one of VIT's biggest hackathons, where students all across India compete to win.
+  Tiny Hack is our problem solving sprit where participants come up with tiny ideas that make a huge impact.
+  Forktober is an event initiative by ACMVIT to take forward open source development among budding developers.
+  Cryptic Hunt is an intensive tech treasure hunt across the VIT campus where participants have to apply their cryptography and cybersecurity skills to solve riddles and questions leading them to notable landmarks around the campus.
+  CodePlusPlus is ACMVIT’s annual competitive coding event that tests the participant’s logical thinking skills and mathematical prowess.`;
+
   var chosenDomain = "none";
 
-  document.addEventListener("keydown", function (event) {
-    if (event.code === "Enter" && chosenDomain !== "none") {
-      console.log(chosenDomain);
-    }
-  });
+  const timeout = 5000;
 
   useEffect(() => {
     inputRef.current.focus();
@@ -51,12 +83,17 @@ function Terminal() {
     setInput(event.target.value);
   };
 
-  const timeout = 5000;
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     switch (input.toLowerCase()) {
+      case "login":
+        setHistory([
+          ...history,
+          { command: "login", output: "Redirecting to the login page..." },
+        ]);
+        break;
+
       case "app":
         setHistory([
           ...history,
@@ -148,6 +185,27 @@ function Terminal() {
         chosenDomain = "cc";
         // await sleep(10000);
         break;
+
+      case "events":
+        setHistory([
+          ...history,
+          {
+            command: "events",
+            output: events,
+          },
+        ]);
+        break;
+
+      case "whois":
+        setHistory([
+          ...history,
+          {
+            command: "whois",
+            output: whoisText,
+          },
+        ]);
+        break;
+
       case "help":
         setHistory([
           ...history,
