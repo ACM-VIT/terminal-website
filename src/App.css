@@ -24,7 +24,6 @@ input {
   font-weight: bold;
   font-size: 18px;
   width: 10px;
-  /* animation: blink 1s infinite; */
 }
 
 .terminal-input {
@@ -34,6 +33,7 @@ input {
   font-size: 18px;
   border: none;
   outline: none;
+  /* animation: blink 1s infinite; */
 }
 
 @keyframes blink {

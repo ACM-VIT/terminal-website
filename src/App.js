@@ -13,6 +13,8 @@ function App() {
 
   const inputRef = React.useRef(null);
 
+  const terminalText = "user@acm-mainframe$ ";
+
   useEffect(() => {
     inputRef.current.focus();
   }, []);
@@ -100,7 +102,10 @@ function App() {
     <div className="App">
       {history.map((item, index) => (
         <div key={index} className="terminal-input">
-          <span>user@acm-mainframe${item.command}</span>
+          <span>
+            {terminalText}
+            {item.command}
+          </span>
           <br />
           <span>{item.output}</span>
           <br />
@@ -109,7 +114,7 @@ function App() {
 
       <form onSubmit={handleSubmit}>
         <label className="terminal-prompt">
-          <span>user@acm-mainframe$</span>
+          <span>{terminalText}</span>
         </label>
         <input
           className="terminal-input"
