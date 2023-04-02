@@ -65,12 +65,19 @@ function Terminal() {
   const defaultText = "Command not found. Type 'help' for a list of commands.";
   const enterText = "\nRedirecting to the form in 5 seconds...";
 
-  const events = `Reverse Coding is our competitive coding event with a twist.
-  Code2Create is our flagship event. It is one of VIT's biggest hackathons, where students all across India compete to win.
-  Tiny Hack is our problem solving sprit where participants come up with tiny ideas that make a huge impact.
-  Forktober is an event initiative by ACMVIT to take forward open source development among budding developers.
-  Cryptic Hunt is an intensive tech treasure hunt across the VIT campus where participants have to apply their cryptography and cybersecurity skills to solve riddles and questions leading them to notable landmarks around the campus.
-  CodePlusPlus is ACMVIT’s annual competitive coding event that tests the participant’s logical thinking skills and mathematical prowess.`;
+  const events = 
+  ` 
+   - Reverse Coding is our competitive coding event with a twist.
+
+   - Code2Create is our flagship event. It is one of VIT's biggest hackathons, where students all across India compete to win.
+
+   - Tiny Hack is our problem solving sprit where participants come up with tiny ideas that make a huge impact.
+
+   - Forktober is an event initiative by ACMVIT to take forward open source development among budding developers.
+
+   - Cryptic Hunt is an intensive tech treasure hunt across the VIT campus where participants have to apply their cryptography and cybersecurity skills to solve riddles and questions leading them to notable landmarks around the campus.
+   
+   - CodePlusPlus is ACMVIT’s annual competitive coding event that tests the participant’s logical thinking skills and mathematical prowess.`;
 
   var chosenDomain = "none";
 
