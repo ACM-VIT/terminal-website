@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 
 const colors = {
@@ -10,6 +10,12 @@ function App() {
   const [input, setInput] = useState("");
   const [history, setHistory] = useState([]);
   const [output, setOutput] = useState("");
+
+  const inputRef = React.useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   const handleInputChange = (event) => {
     setInput(event.target.value);
@@ -93,7 +99,7 @@ function App() {
   return (
     <div className="App">
       {history.map((item, index) => (
-        <div key={index}>
+        <div key={index} className="terminal-input">
           <span>user@acm-mainframe${item.command}</span>
           <br />
           <span>{item.output}</span>
@@ -102,16 +108,18 @@ function App() {
       ))}
 
       <form onSubmit={handleSubmit}>
-        <label>
+        <label className="terminal-prompt">
           <span>user@acm-mainframe$</span>
         </label>
         <input
-          className="command-input"
+          className="terminal-input"
           type="text"
+          ref={inputRef}
           value={input}
           onChange={handleInputChange}
         />
       </form>
+      <br />
     </div>
   );
 }
