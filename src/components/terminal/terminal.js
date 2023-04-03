@@ -52,7 +52,7 @@ function Terminal() {
   const appText =
     "The app domain in ACM creates innovative, user-friendly, and feature-rich apps for Android and iOS. They specialize in Flutter, Kotlin, and Swift and can develop event-specific apps. Their goal is to provide an exciting and interactive experience for users and optimize performance and usability.";
   const ccText =
-    "The competitive coding domain in ACM solves complex coding problems and enhances problem-solving skills. They work with the research domain to create innovative problems for participants, host events, and represent ACM in other coding competitions. The domain is known for their participation in the ACM ICPC and designs questions for ACM's RC events. \n\nWe will be hosting a Competitive Coding event on <date> on Hackerrank. Stay Tuned!";
+    "The competitive coding domain in ACM solves complex coding problems and enhances problem-solving skills. They work with the research domain to create innovative problems for participants, host events, and represent ACM in other coding competitions. The domain is known for their participation in the ACM ICPC and designs questions for ACM's RC events. \n\nWe will be hosting a Competitive Coding event soon. Stay Tuned!";
   const helpText = `Available commands: 
      - app
      - web 
