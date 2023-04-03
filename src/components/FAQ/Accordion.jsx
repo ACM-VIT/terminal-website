@@ -14,7 +14,7 @@ const Accordion = ({ question, answer }) => {
 
   return (
     <div
-      className="w-4/5 my-2 md:min-w-full mx-auto cursor-pointer bg-[#41E22E] text-black py-2 px-10 md:w-3/5"
+      className="w-4/5 my-2 md:min-w-full mx-auto cursor-pointer bg-[#41E22E] hover:bg-green-400 text-black py-2 px-10 md:w-3/5"
       onClick={() => {
         setShow(!show);
       }}
