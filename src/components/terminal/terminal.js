@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./terminal.css";
+import Sidebar from "../sidebar/sidebar";
 
 import { loadAuth2 } from "gapi-script";
 
@@ -242,6 +243,7 @@ function Terminal() {
   };
 
   return (
+    <><Sidebar />
     <div className="terminal">
       {history.map((item, index) => (
         <div key={index} className="terminal-input">
@@ -264,11 +266,10 @@ function Terminal() {
           type="text"
           ref={inputRef}
           value={input}
-          onChange={handleInputChange}
-        />
+          onChange={handleInputChange} />
       </form>
       <br />
-    </div>
+    </div></>
   );
 }
 
