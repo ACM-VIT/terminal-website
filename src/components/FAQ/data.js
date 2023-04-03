@@ -26,7 +26,7 @@ const data = [
       id: 4,
       question: "What is the procedure?",
       answer: <div className="text-center">
-      There are 3 rounds!<br />
+      There are 3 rounds:<br />
       Round 1: Applicants have to fill the form according to their interests,<br /> and to the best of their abilities.<br />
       Round 2: Applicants have to face an interview, and accept a task. <br />For Management, applicants have to participate in a Group Discussion<br />
       Round 3: The final one-on-one interview round!<br />
