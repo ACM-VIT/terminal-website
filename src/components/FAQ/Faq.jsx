@@ -24,7 +24,7 @@ const Faq = () => {
           return <Accordion key={item.id} {...item} />;
         })}
       </div>
-      <div className="text-3xl cursor-pointer"><Link to="/landing">Back</Link></div>
+      <div className="text-3xl  hover:text-green-400 cursor-pointer"><Link to="/landing">Back</Link></div>
       <div className="mb-2 flex space-x-8">
         <a href="https://www.linkedin.com/company/acmvit">
           <FaLinkedin className="scale-150" />
