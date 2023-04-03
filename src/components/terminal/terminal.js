@@ -54,6 +54,12 @@ function Terminal() {
 
   const inputRef = useRef(null);
 
+  const historyEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    historyEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const terminalText = "[user@acm-mainframe]~$ ";
 
   const researchText =
@@ -137,6 +143,10 @@ function Terminal() {
   useEffect(() => {
     inputRef.current.focus();
   }, []);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [history]);
 
   const handleInputChange = (event) => {
     setInput(event.target.value);
@@ -411,6 +421,7 @@ function Terminal() {
           />
         </form>
         <br />
+        <div ref={historyEndRef}></div>
       </div>
     </>
   );
