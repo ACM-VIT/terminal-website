@@ -29,7 +29,7 @@ function Landing()
             </div>
             <div className="flex-grow pt-8 md:h-15 lg:h-40">
                 <div className='pb-4 md:pb-4 lg:pb-8 pt-8 flex items-center text-center justify-center text-4xl md:text-5xl lg:text-6xl'>
-                    ACM Enrollments
+                    ACM Organzing Committee Selections
                 </div>
                 <div className='px-2 md:pb-8 lg:pb-12 flex items-center justify-center text-center text-xl md:text-2xl lg:text-3xl'>
                     Empowering the future of computing through exceptional committee selections

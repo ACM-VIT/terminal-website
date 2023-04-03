@@ -1,0 +1,5 @@
+@@ -0,0 +1,4 @@
+.maxHeightTransition {
+  transition: height 0.5s ease;
+  overflow: hidden;
+}
