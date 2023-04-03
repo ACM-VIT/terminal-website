@@ -81,6 +81,40 @@ function Terminal() {
    
    - CodePlusPlus is ACMVIT’s annual competitive coding event that tests the participant’s logical thinking skills and mathematical prowess.`;
 
+  const boardList = `
+    - Chair                     <chair>
+    - Vice Chair                <vc>  
+    - Secretary                 <sec>
+    - Co-Secretary              <cosec>
+    - Technical Head            <tech-head>
+    - Design Head               <design-head>
+    - Research Head             <research-head>
+    - Competitive Coding Head   <cc-head>
+    - Project Head              <projects-head>
+    - Creative Head             <creative-head>
+    - ACM-W Chair               <w-chair>
+    - ACM-W Vice Chair          <w-vc>
+    - ACM-W Secretary           <w-sec>
+   `;
+
+  const boardMap = {
+    chair: "Harsh Avinash - Our Lord and Saviour",
+    vc: "Aryan Khubchandani - The man everyone is scared of but is actually the sweetest.",
+    sec: "Sumona Sud - She’s one of the hardest workers in the Chapter and never fails to inspire people to be like her.",
+    cosec: "Chirayu Sharma - THE APP DEV",
+    "tech-head": "Gagan Malvi - All tech, no talk. He made Styx btw",
+    "design-head":
+      "Jeet Kaushik - Body Building or Design, we don’t know what he likes more.",
+    "research-head": "Thillai Chithambaram - Silent Killer",
+    "cc-head": "Rehber Moin - He's your go to CC man",
+    "projects-head": "Swarup kharul - Saves our backend. Always.",
+    "creative-head": "Dhriti - The all-in-one",
+    "w-chair":
+      "Ananya Grover - Inspiring all around, makes ACM-W what it is today.",
+    "w-vc": "Aishwarya Majunath - True Bangalore Girl",
+    "w-sec": "Samridh Agarwal - The ladies' man",
+  };
+
   var chosenDomain = "none";
 
   const timeout = 5000;
@@ -97,6 +131,100 @@ function Terminal() {
     event.preventDefault();
 
     switch (input.toLowerCase()) {
+      case "board":
+        setHistory([...history, { command: "board", output: boardList }]);
+        break;
+
+      case "chair":
+        setHistory([
+          ...history,
+          { command: "chair", output: boardMap["chair"] },
+        ]);
+        break;
+
+      case "vc":
+        setHistory([...history, { command: "vc", output: boardMap["vc"] }]);
+        break;
+
+      case "sec":
+        setHistory([...history, { command: "sec", output: boardMap["sec"] }]);
+        break;
+
+      case "cosec":
+        setHistory([
+          ...history,
+          { command: "cosec", output: boardMap["cosec"] },
+        ]);
+        break;
+
+      case "tech-head":
+        setHistory([
+          ...history,
+          { command: "tech-head", output: boardMap["tech-head"] },
+        ]);
+        break;
+
+      case "design-head":
+        setHistory([
+          ...history,
+          { command: "design-head", output: boardMap["design-head"] },
+        ]);
+
+        break;
+
+      case "research-head":
+        setHistory([
+          ...history,
+          { command: "research-head", output: boardMap["research-head"] },
+        ]);
+
+        break;
+
+      case "cc-head":
+        setHistory([
+          ...history,
+          { command: "cc-head", output: boardMap["cc-head"] },
+        ]);
+
+        break;
+
+      case "projects-head":
+        setHistory([
+          ...history,
+          { command: "projects-head", output: boardMap["projects-head"] },
+        ]);
+
+        break;
+
+      case "creative-head":
+        setHistory([
+          ...history,
+          { command: "creative-head", output: boardMap["creative-head"] },
+        ]);
+
+        break;
+
+      case "w-chair":
+        setHistory([
+          ...history,
+          { command: "w-chair", output: boardMap["w-chair"] },
+        ]);
+
+        break;
+
+      case "w-vc":
+        setHistory([...history, { command: "w-vc", output: boardMap["w-vc"] }]);
+
+        break;
+
+      case "w-sec":
+        setHistory([
+          ...history,
+          { command: "w-sec", output: boardMap["w-sec"] },
+        ]);
+
+        break;
+
       case "app":
         setHistory([
           ...history,
@@ -237,33 +365,36 @@ function Terminal() {
   };
 
   return (
-    <><Sidebar />
-    <div className="terminal">
-      {history.map((item, index) => (
-        <div key={index} className="terminal-input">
-          <span>
-            {terminalText}
-            {item.command}
-          </span>
-          <br />
-          <span>{item.output}</span>
-          <br />
-        </div>
-      ))}
+    <>
+      <Sidebar />
+      <div className="terminal">
+        {history.map((item, index) => (
+          <div key={index} className="terminal-input">
+            <span>
+              {terminalText}
+              {item.command}
+            </span>
+            <br />
+            <span>{item.output}</span>
+            <br />
+          </div>
+        ))}
 
-      <form onSubmit={handleSubmit}>
-        <label className="terminal-prompt">
-          <span>{terminalText}</span>
-        </label>
-        <input
-          className="terminal-input"
-          type="text"
-          ref={inputRef}
-          value={input}
-          onChange={handleInputChange} />
-      </form>
-      <br />
-    </div></>
+        <form onSubmit={handleSubmit}>
+          <label className="terminal-prompt">
+            <span>{terminalText}</span>
+          </label>
+          <input
+            className="terminal-input"
+            type="text"
+            ref={inputRef}
+            value={input}
+            onChange={handleInputChange}
+          />
+        </form>
+        <br />
+      </div>
+    </>
   );
 }
 
