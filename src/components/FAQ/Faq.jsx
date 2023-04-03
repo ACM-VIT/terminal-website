@@ -6,25 +6,27 @@ import { FaLinkedin, FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
 
 import logo from "../../assets/ACM.svg";
 import data from "./data";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import styles from "./Faq.module.css";
 
 const Faq = () => {
   return (
     <div
-      className={`h-screen w-screen ${styles.background} flex flex-col items-center space-y-5`}
+      className={`h-screen w-screen ${styles.background} flex flex-col items-center overflow-y-scroll space-y-5`}
     >
       <div className="flex-none md:h-36 pt-8 flex items-center justify-center">
-                <img src={logo} className='h-full' alt="ACM Logo" />
-            </div>
+        <img src={logo} className="h-full" alt="ACM Logo" />
+      </div>
       <div className="text-5xl pt-8">FAQs</div>
       <div>
         {data.map((item) => {
           return <Accordion key={item.id} {...item} />;
         })}
       </div>
-      <div className="text-3xl  hover:text-green-400 cursor-pointer"><Link to="/landing">Back</Link></div>
+      <div className="text-3xl  hover:text-green-400 cursor-pointer">
+        <Link to="/landing">Back</Link>
+      </div>
       <div className="mb-2 flex space-x-8">
         <a href="https://www.linkedin.com/company/acmvit">
           <FaLinkedin className="scale-150" />
