@@ -1,17 +1,29 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./terminal.css";
 import Sidebar from "../sidebar/sidebar";
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
 
-import { loadAuth2 } from "gapi-script";
+firebase.initializeApp({
+  apiKey: "AIzaSyARMgwYW321uYtjkSdr-4-zjZ9w2KT9IuM",
+  authDomain: "acm-recruitments-2023-24.firebaseapp.com",
+  projectId: "acm-recruitments-2023-24",
+  storageBucket: "acm-recruitments-2023-24.appspot.com",
+  messagingSenderId: "386640585508",
+  appId: "1:386640585508:web:a8c62c1d3dd806338489b1",
+  measurementId: "G-GBDP1TW3F3",
+});
 
-// const colors = {
-//   green: "#00ff00",
-//   white: "#ffffff",
-// };
+//initialise db
+const firestore = firebase.firestore();
+const terminal_messages = firestore.collection("terminal_messages");
 
-// function sleep(ms) {
-//   return new Promise((resolve) => setTimeout(resolve, ms));
-// }
+const storeInput = async (input) => {
+  await terminal_messages.add({
+    input: input,
+    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+  });
+};
 
 function Terminal() {
   const whoisText = `
@@ -129,6 +141,9 @@ function Terminal() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    //add input to firebase
+    storeInput(input);
 
     switch (input.toLowerCase()) {
       case "board":
