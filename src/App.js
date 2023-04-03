@@ -1,15 +1,22 @@
 import React, { useRef, useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import "./App.css";
 import Terminal from "./components/terminal/terminal";
 import Sidebar from "./components/sidebar/sidebar";
 import Landing from "./components/landing/landing";
+// import FAQ from "./components/Faq/Faq";
 
 function App() {
   return (
-    <div className="App">
-      <Sidebar></Sidebar>
-      <Terminal></Terminal>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Landing/>} />
+          <Route path="/terminal" element={<Terminal/>} />
+          {/* <Route path="/Faq" element={<FAQ/>} /> */}
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
