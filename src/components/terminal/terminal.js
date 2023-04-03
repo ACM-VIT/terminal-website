@@ -26,6 +26,9 @@ function Terminal() {
   Get ready to embark on this journey with us!
 
   Type 'help' for a list of commands. We have a few secrets put away for you too.  
+
+  Please allow popups in your browser for the form to open.
+  Use your VIT email ID to register for the forms.
   `;
 
   const [input, setInput] = useState("");
@@ -60,13 +63,11 @@ function Terminal() {
      - events 
      - whois
      - help
-     Please allow popups in your browser for the form to open.
      `;
   const defaultText = "Command not found. Type 'help' for a list of commands.";
   const enterText = "\nRedirecting to the form in 5 seconds...";
 
-  const events = 
-  ` 
+  const events = ` 
    - Reverse Coding is our competitive coding event with a twist.
 
    - Code2Create is our flagship event. It is one of VIT's biggest hackathons, where students all across India compete to win.
@@ -95,13 +96,6 @@ function Terminal() {
     event.preventDefault();
 
     switch (input.toLowerCase()) {
-      case "login":
-        setHistory([
-          ...history,
-          { command: "login", output: "Redirecting to the login page..." },
-        ]);
-        break;
-
       case "app":
         setHistory([
           ...history,
