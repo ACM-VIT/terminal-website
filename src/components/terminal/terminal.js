@@ -19,10 +19,13 @@ const firestore = firebase.firestore();
 const terminal_messages = firestore.collection("terminal_messages");
 
 const storeInput = async (input) => {
+  const snapshot = await terminal_messages.get();
   await terminal_messages.add({
     input: input,
     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    inputNumber: snapshot.size,
   });
+  // console.log(snapshot.size);
 };
 
 function Terminal() {
