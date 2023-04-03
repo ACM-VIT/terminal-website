@@ -7,8 +7,9 @@ import Landing from "./components/landing/landing";
 function App() {
   return (
     <div className="App">
-      <Sidebar></Sidebar>
-      <Terminal></Terminal>
+      {/* <Sidebar></Sidebar>
+      <Terminal></Terminal> */}
+      <Landing></Landing>
     </div>
   );
 }
