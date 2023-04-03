@@ -36,7 +36,7 @@ function Landing()
                 </div>   
             </div>
             <div className="flex-none h-20 flex items-center justify-center pt-4">
-                <button className="bg-[#41E22E] hover:bg-green-400 text-black py-2 px-4 ">
+                <button className="bg-[#41E22E] hover:bg-green-400 text-black py-2 px-4 mt-10">
                     <div className='text-lg md:text-3xl lg:text-4xl px-3'><Link to="/terminal">Register Now</Link></div>
                 </button>
             </div>
