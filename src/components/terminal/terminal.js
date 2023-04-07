@@ -73,7 +73,7 @@ function Terminal() {
   const appText =
     "The app domain in ACM creates innovative, user-friendly, and feature-rich apps for Android and iOS. They specialize in Flutter, Kotlin, and Swift and can develop event-specific apps. Their goal is to provide an exciting and interactive experience for users and optimize performance and usability.";
   const ccText =
-    "The competitive coding domain in ACM solves complex coding problems and enhances problem-solving skills. They work with the research domain to create innovative problems for participants, host events, and represent ACM in other coding competitions. The domain is known for their participation in the ACM ICPC and designs questions for ACM's RC events. \n\nWe will be hosting a Competitive Coding event soon. Stay Tuned!";
+    "The competitive coding domain in ACM solves complex coding problems and enhances problem-solving skills. They work with the research domain to create innovative problems for participants, host events, and represent ACM in other coding competitions. The domain is known for their participation in the ACM ICPC and designs questions for ACM's RC events. \n\nWe are hosting a Competitive Coding event. Register Now!";
   const helpText = `Available commands: 
      - app
      - web 
@@ -337,12 +337,19 @@ function Terminal() {
           ...history,
           {
             command: "cc",
-            output: ccText,
+            output: ccText + "\nRedirecting to HackerRank in 5 seconds...",
           },
         ]);
 
         chosenDomain = "cc";
         // await sleep(10000);
+        //
+        setTimeout(() => {
+          window.open(
+            "https://www.hackerrank.com/acm-vit-competitive-recruitments-round-1"
+          );
+        }, timeout);
+
         break;
 
       case "events":
