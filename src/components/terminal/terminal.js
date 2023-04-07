@@ -158,7 +158,7 @@ function Terminal() {
     //add input to firebase
     storeInput(input);
 
-    switch (input.toLowerCase()) {
+    switch (input.toLowerCase().trim()) {
       case "board":
         setHistory([...history, { command: "board", output: boardList }]);
         break;
