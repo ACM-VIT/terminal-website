@@ -23,6 +23,7 @@ const storeInput = async (input) => {
   await terminal_messages.add({
     input: input,
     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+
     inputNumber: snapshot.size,
   });
   // console.log(snapshot.size);
@@ -347,6 +348,23 @@ function Terminal() {
         setTimeout(() => {
           window.open(
             "https://www.hackerrank.com/acm-vit-competitive-recruitments-round-1"
+          );
+        }, timeout);
+
+        break;
+
+      case "cc-form":
+        setHistory([
+          ...history,
+          {
+            command: "cc-form",
+            output: "Redirecting to CC-Form in 5 seconds...",
+          },
+        ]);
+
+        setTimeout(() => {
+          window.open(
+            "https://docs.google.com/forms/d/e/1FAIpQLSeDkyhwB19xQK5HOfb7rrgV8moOaqH7UbhmdYl6cXoraYA4Fw/viewform?usp=sf_link"
           );
         }, timeout);
 
